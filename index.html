@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>练习</title>
+  <!-- <link rel="stylesheet" href="./index.css"> -->
+  <script src="./app.js"></script>
+  <style>
+    #outer {
+      background: #00ff00;
+      position: relative;
+      left: 50%;
+      float: left;
+    }
+
+    #box1 {
+      width: 200px;
+      height: 50px;
+      background: #ff0000;
+      float: left;
+      position: relative;
+      right: 50%;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="box1"></div>
+  </div>
+  <script>
+    function getRandom(n) {
+      var arr = []
+      for (var i = 0; i < n; i++) {
+        var randomNum = Math.floor(Math.random() * 100)
+        arr.push(randomNum)
+      }
+      return arr
+    }
+    var item = getRandom(10)
+    console.log(item, "没排序")
+    // function popSort(item) {
+    //   for (var j = item.length - 1; j > 0; j--) {
+    //     for (var i = 0; i < j; i++) {
+    //       if (item[i] > item[i + 1]) {
+    //         [item[i], item[i + 1]] = [item[i + 1], item[i]]
+    //       }
+    //     }
+    //   }
+    //   console.log(item, "排序后")
+    // }
+    // popSort(item)
+    // function selectSort(item) {     
+    //   for (var j = 0; j < item.length; j++) {
+    //     var minIndex = j
+    //     for (var i = j + 1; i < item.length; i++) {
+    //       if (item[i] < item[minIndex]) {
+    //         minIndex = i
+    //       }
+    //     }
+    //     [item[minIndex], item[j]] = [item[j], item[minIndex]]
+    //   }
+    //   console.log(item,"排序后")
+    // }
+    // selectSort(item)
+
+    // function insertSort(item){
+    //   for(var i = 0;i < item.length;i++){
+    //     var currentI = i
+    //     for(var j = i+1;j>0;j--){
+    //       if(item[currentI]>item[j]){
+    //         [item[currentI], item[j]] = [item[j], item[currentI]]
+    //         currentI--
+    //       }else{
+    //         break
+    //       }
+    //     }
+    //   }
+    //   console.log(item)
+    // }
+    // insertSort(item)
+
+    // bingGui(item)
+    // function bingGui(item) {
+    //   fen(item,0,item.length-1)
+    //   console.log(item)
+    // }
+    // function fen(arr, L, R) {
+    //   if (L == R) {
+    //     return
+    //   }
+    //   var mid = Math.floor((R - L) / 2 + L)
+    //   fen(arr, L, mid)
+    //   fen(arr, mid + 1, R)
+    //   merge(arr, L, mid, R)
+    // }
+    // function merge(arr, L, mid, R) {
+    //   var tempArr = []
+    //   var p1 = L
+    //   var p2 = mid + 1
+    //   while (p1 <= mid&&p2<=R) {
+    //     if (arr[p1] < arr[p2]) {
+    //       tempArr.push(arr[p1])
+    //       p1++
+    //     } else {
+    //       tempArr.push(arr[p2])
+    //       p2++
+    //     }
+    //   }
+    //   while(p2<=R){
+    //     tempArr.push(arr[p2])
+    //     p2++
+    //   }
+    //   while(p1<=mid){
+    //     tempArr.push(arr[p1])
+    //     p1++
+    //   }
+    //   for(var i = 0 ;i<tempArr.length;i++){
+    //     arr[L + i] = tempArr[i]
+    //   }
+    // }
+
+    // function flag(item, num) {
+    //   var less = -1
+    //   var more = item.length
+    //   for (var i = 0; i < item.length && i < more; i++) {
+    //     if (item[i] < num) {
+    //       [item[i], item[less + 1]] = [item[less + 1], item[i]]
+    //       less++
+    //     } else if (item[i] == num) {
+    //       continue
+    //     } else {
+    //       [item[i], item[more - 1]] = [item[more - 1], item[i]]
+    //       i--
+    //       more--
+    //     }
+    //   }
+    //   console.log(item)
+    // }
+    // flag([4, 5, 2, 8, 1, 9, 6, 11, 5, 5], 5)
+
+    // function partation(arr, L, R) {
+    //   var less = L - 1
+    //   var more = R + 1
+    //   var num = arr[R]
+    //   for (var i = L; i < more; i++) {
+    //     if (arr[i] < num) {
+    //       [arr[i], arr[less + 1]] = [arr[less + 1], arr[i]]
+    //       less++
+    //     } else if (arr[i] == num) {
+    //       continue
+    //     } else {
+    //       [arr[i], arr[more - 1]] = [arr[more - 1], arr[i]]
+    //       i--
+    //       more--
+    //     }
+    //   }
+    //   return [less, more]
+    // }
+    // function quickSort(arr, L, R) {
+    //   if (L < R) {
+    //     var p = partation(arr, L, R)
+    //     quickSort(arr, L, p[0])
+    //     quickSort(arr, p[1], R)
+    //   }
+    // }
+    // var k = [4, 5, 2, 8, 1, 9, 6, 11, 5, 5]
+    // quickSort(k, 0, 9)
+    // console.log(k)
+
+    // function heapInsert(arr, idx) {
+    //   var parIdx = Math.floor((idx - 1) / 2)
+    //   while (parIdx >= 0 && arr[idx] > arr[parIdx]) {
+    //     [arr[idx], arr[parIdx]] = [arr[parIdx], arr[idx]]
+    //     idx = parIdx
+    //     parIdx = Math.floor((idx - 1) / 2)
+    //   }
+    // }
+
+    // function heapfy(arr, idx, heapsize) {
+    //   var leftSon = idx * 2 + 1
+    //   var rightSon = leftSon + 1
+    //   if (leftSon <= heapsize) {
+    //     if (rightSon>heapsize) {
+    //       var largestIdx = leftSon
+    //     } else {
+    //       largestIdx = arr[leftSon] > arr[rightSon] ? leftSon : rightSon
+    //     }
+    //     if (arr[largestIdx] > arr[idx]) {
+    //       [arr[largestIdx], arr[idx]] = [arr[idx], arr[largestIdx]]
+    //       heapfy(arr, largestIdx, heapsize)
+    //     }
+    //   }
+    // }
+    // function heapSort(arr) {
+    //   for (var i = 0; i < arr.length; i++) {
+    //     heapInsert(arr, i)
+    //   }
+    //   var heapsize = arr.length - 1
+    //   while (heapsize > 0) {
+    //     [arr[0], arr[heapsize]] = [arr[heapsize], arr[0]]
+    //     heapsize--
+    //     heapfy(arr, 0, heapsize)
+    //   }
+    // }
+    // heapSort(item)
+    // console.log(item,"排序后")
+
+    // class MockHeap {
+    //   constructor(size) {
+    //     this.data = []
+    //     this.index = 0
+    //     this.size = size
+    //   }
+    //   pushHandler(num) {
+    //     if (this.index >= this.size) {
+    //       throw new Error("不能加了")  
+    //     } else {
+    //       this.data[this.index] = num
+    //       this.index++
+    //       console.log(this.data,"站内数据")
+    //     }
+    //     console.log(this.index,"我是指针")
+    //   }
+    //   popHandler() {
+    //     if (this.index > 0) {
+    //       console.log(this.data[this.index - 1],"弹出数据")
+    //       this.index--
+    //       console.log(this.data,"站内数据")
+    //     }else{
+    //       console.log("不能减了")
+    //     }
+    //     console.log(this.index,"我是指针")
+    //   }
+    // }
+    // var a = new MockHeap(3)
+    // a.pushHandler(1);
+    // a.pushHandler(2);
+    // a.pushHandler(3);
+    // a.popHandler()
+    // a.popHandler()
+    // a.popHandler()
+    // a.popHandler()
+
+    class Node {
+      constructor(value) {
+        this.value = value
+        this.left = null
+        this.right = null
+      }
+    }
+    var temp = []
+    for(var i = 1;i<=7;i++){
+      var a = new Node(i)
+      temp.push(a)
+    }
+    for(var j = 0;j<=7&&2*j+1<=7&&2*j+2<=7;j++){
+      temp[j].left = temp[2*j+1]
+      temp[j].right = temp[2*j+2]
+    }
+    console.log(temp)
+    function pre(a) {
+      if (a == null) {
+        return;
+      }
+      
+      pre(a.left)
+      pre(a.right)
+      console.log(a.value) 
+    }
+    pre(temp[0])
+  </script>
+</body>
+
+</html>
